@@ -9,6 +9,7 @@
           crossorigin="anonymous">
 </head>
 <body>
+<div th:replace="header :: content"></div>
 <div class="container">
     <h1>User, welcome spring boot security page!</h1>
     <table class="table table-bordered table-striped">
@@ -31,8 +32,8 @@
 
         </tbody>
     </table>
-    <hr/>
-    <a th:href="@{/logout}" class="btn btn-primary mb-2">Log out</a>
+    <!--    <hr/>-->
+    <!--    <a th:href="@{/logout}" class="btn btn-primary mb-2">Log out</a>-->
 </div>
 </body>
 </html>
