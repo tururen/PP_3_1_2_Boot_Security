@@ -1,7 +1,5 @@
 package ru.kata.spring.boot_security.demo.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,11 +15,8 @@ public class AdminController {
 
     private final UserService service;
 
-    private final PasswordEncoder passwordEncoder;
-
-    public AdminController(UserService service, PasswordEncoder passwordEncoder) {
+    public AdminController(UserService service) {
         this.service = service;
-        this.passwordEncoder = passwordEncoder;
     }
 
     @RequestMapping
@@ -42,7 +37,6 @@ public class AdminController {
 
     @RequestMapping("/saveUser")
     public String saveUser(@ModelAttribute ("user") User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
         service.save(user);
         return "redirect:/admin";
     }
