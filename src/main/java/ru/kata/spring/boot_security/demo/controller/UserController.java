@@ -19,10 +19,6 @@ public class UserController {
         this.userService = userService;
     }
 
-//    @GetMapping("/login")
-//    public String getLoginPage() {
-//        return "loginPage";
-//    }
 
     @GetMapping("/user")
     public String getUserPage(Principal principal, Model model) {
